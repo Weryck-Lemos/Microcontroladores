@@ -1,0 +1,64 @@
+#include "stm32f1xx.h"
+
+
+void EXTI0_IRQHandler(void);  // PB0
+void EXTI1_IRQHandler(void);  // PB1
+void EXTI9_5_IRQHandler(void); //PB5 ate PB9
+
+int main(void) {
+    //habilitar clock
+    RCC->APB2ENR |= (1 << 2) | (1 << 3) | (1 << 0);
+
+    //PA0, PA1, PA2 output
+    GPIOA->CRL &= ~(0xFFF);
+    GPIOA->CRL |=  (0x222);
+
+    //PB0, PB1, PB5 input pull-up
+    GPIOB->CRL &= ~( (0xF << 0) | (0xF << 4) | (0xF << 20) );
+    GPIOB->CRL |=  ( (0x8 << 0) | (0x8 << 4) | (0x8 << 20) );
+    GPIOB->ODR |=  (1 << 0) | (1 << 1) | (1 << 5); // ativa Pull-up
+
+    //configurar AFIO para mapear os pinos como EXTI
+    // AFIO->EXTICR[0] pinos 0 a 3. AFIO->EXTICR[1] pinos 4 a 7.
+    AFIO->EXTICR[0] |= (0x1 << 0);  // mapeia PB0 para EXTI0
+    AFIO->EXTICR[0] |= (0x1 << 4);  //mapeia PB1 para EXTI1
+    AFIO->EXTICR[1] |= (0x1 << 4);  // mapeia PB5 para EXTI5
+
+    // 5. Configurar EXTI (Borda de Descida - Falling Edge)
+    EXTI->FTSR |= (1 << 0) | (1 << 1) | (1 << 5); // Trigger na descida (0V)
+    EXTI->IMR  |= (1 << 0) | (1 << 1) | (1 << 5); // Habilita a máscara (Interrupt Mask)
+
+    // 6. Habilitar no NVIC (O "chefe" das interrupções)
+    NVIC_EnableIRQ(EXTI0_IRQn);
+    NVIC_EnableIRQ(EXTI1_IRQn);
+    NVIC_EnableIRQ(EXTI9_5_IRQn); // PB5 compartilha esse canal com PB6-PB9
+
+    while(1) {
+        // O loop principal fica vazio!
+        // O processador pode até entrar em modo de baixo consumo aqui.
+        __WFI(); // Wait For Interrupt
+    }
+}
+
+// --- Handlers (O que acontece quando o botão é apertado) ---
+
+void EXTI0_IRQHandler(void) {
+    if (EXTI->PR & (1 << 0)) {    // Verifica se a interrupção veio mesmo do pino 0
+        GPIOA->ODR ^= (1 << 0);   // XOR (Inverte o LED PA0)
+        EXTI->PR |= (1 << 0);     // Limpa a flag de interrupção (obrigatório!)
+    }
+}
+
+void EXTI1_IRQHandler(void) {
+    if (EXTI->PR & (1 << 1)) {
+        GPIOA->ODR ^= (1 << 1);   // XOR (Inverte o LED PA1)
+        EXTI->PR |= (1 << 1);
+    }
+}
+
+void EXTI9_5_IRQHandler(void) {
+    if (EXTI->PR & (1 << 5)) {    // Verifica se foi o pino 5
+        GPIOA->ODR ^= (1 << 2);   // XOR (Inverte o LED PA2)
+        EXTI->PR |= (1 << 5);
+    }
+}

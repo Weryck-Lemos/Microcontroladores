@@ -1,0 +1,5 @@
+C:/Users/rodol/STM32CubeIDE/workspace_1.14.1/BM_USART_TXIRQ/F1_Header/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../Src/main.c:31:6:SysTick_Handler	4	static
+../Src/main.c:36:6:USART1_IRQHandler	4	static
+../Src/main.c:52:6:uart_write	16	static
+../Src/main.c:66:5:main	16	static

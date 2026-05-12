@@ -1,0 +1,39 @@
+#include "stm32f1xx.h"
+
+int main(void) {
+    //habilitar o clock porta Ae B
+    RCC->APB2ENR |= (1 << 2) | (1 << 3);
+
+    //PA0, PA1, PA2 output
+    GPIOA->CRL &= ~(0xFFF);
+    GPIOA->CRL |=  (0x222);
+
+    // PB0, PB1, PB10
+    GPIOB->CRL &= ~(0xFF);
+    GPIOB->CRL |=  (0x88);
+    GPIOB->CRH &= ~(0xF << 8);
+
+    // pull-up
+    GPIOB->ODR |= (1 << 0) | (1 << 1) | (1 << 10);
+
+    while(1) {
+        if (!(GPIOB->IDR & (1 << 0))) {
+            GPIOA->ODR |= (1 << 0);
+        } else {
+            GPIOA->ODR &= ~(1 << 0);
+        }
+
+
+        if (!(GPIOB->IDR & (1 << 1))) {
+            GPIOA->ODR |= (1 << 1);
+        } else {
+            GPIOA->ODR &= ~(1 << 1);
+        }
+
+        if (!(GPIOB->IDR & (1 << 10))) {
+            GPIOA->ODR |= (1 << 2);
+        } else {
+            GPIOA->ODR &= ~(1 << 2);
+        }
+    }
+}

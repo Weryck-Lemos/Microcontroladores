@@ -1,0 +1,64 @@
+#include "stm32f1xx.h"
+
+// Protótipos das funções de interrupção (Handler)
+void EXTI0_IRQHandler(void);  // Para PB0
+void EXTI1_IRQHandler(void);  // Para PB1
+void EXTI9_5_IRQHandler(void); // Para PB5 até PB9
+
+int main(void) {
+    // 1. Habilitar Clocks: Porta A (LEDs), Porta B (Botões) e AFIO (Interrupções)
+    RCC->APB2ENR |= (1 << 2) | (1 << 3) | (1 << 0);
+
+    // 2. Configurar PA0, PA1, PA2 como Saída (LED RGB ou 3 LEDs)
+    GPIOA->CRL &= ~(0xFFF);
+    GPIOA->CRL |=  (0x222);
+
+    // 3. Configurar PB0, PB1, PB5 como Entrada com Pull-up
+    GPIOB->CRL &= ~( (0xF << 0) | (0xF << 4) | (0xF << 20) );
+    GPIOB->CRL |=  ( (0x8 << 0) | (0x8 << 4) | (0x8 << 20) );
+    GPIOB->ODR |=  (1 << 0) | (1 << 1) | (1 << 5); // Ativa Pull-up
+
+    // 4. Configurar AFIO para mapear os pinos da Porta B para o EXTI
+    // AFIO->EXTICR[0] cuida dos pinos 0 a 3. AFIO->EXTICR[1] cuida de 4 a 7.
+    AFIO->EXTICR[0] |= (0x1 << 0);  // Mapeia PB0 para EXTI0
+    AFIO->EXTICR[0] |= (0x1 << 4);  // Mapeia PB1 para EXTI1
+    AFIO->EXTICR[1] |= (0x1 << 4);  // Mapeia PB5 para EXTI5 (bits 4-7 do EXTICR[1])
+
+    // 5. Configurar EXTI (Borda de Descida - Falling Edge)
+    EXTI->FTSR |= (1 << 0) | (1 << 1) | (1 << 5); // Trigger na descida (0V)
+    EXTI->IMR  |= (1 << 0) | (1 << 1) | (1 << 5); // Habilita a máscara (Interrupt Mask)
+
+    // 6. Habilitar no NVIC (O "chefe" das interrupções)
+    NVIC_EnableIRQ(EXTI0_IRQn);
+    NVIC_EnableIRQ(EXTI1_IRQn);
+    NVIC_EnableIRQ(EXTI9_5_IRQn); // PB5 compartilha esse canal com PB6-PB9
+
+    while(1) {
+        // O loop principal fica vazio!
+        // O processador pode até entrar em modo de baixo consumo aqui.
+        __WFI(); // Wait For Interrupt
+    }
+}
+
+// --- Handlers (O que acontece quando o botão é apertado) ---
+
+void EXTI0_IRQHandler(void) {
+    if (EXTI->PR & (1 << 0)) {    // Verifica se a interrupção veio mesmo do pino 0
+        GPIOA->ODR ^= (1 << 0);   // XOR (Inverte o LED PA0)
+        EXTI->PR |= (1 << 0);     // Limpa a flag de interrupção (obrigatório!)
+    }
+}
+
+void EXTI1_IRQHandler(void) {
+    if (EXTI->PR & (1 << 1)) {
+        GPIOA->ODR ^= (1 << 1);   // XOR (Inverte o LED PA1)
+        EXTI->PR |= (1 << 1);
+    }
+}
+
+void EXTI9_5_IRQHandler(void) {
+    if (EXTI->PR & (1 << 5)) {    // Verifica se foi o pino 5
+        GPIOA->ODR ^= (1 << 2);   // XOR (Inverte o LED PA2)
+        EXTI->PR |= (1 << 5);
+    }
+}
