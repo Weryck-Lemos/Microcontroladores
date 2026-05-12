@@ -1,6 +1,6 @@
 # Microcontroladores
 
-Este repositório contém o código-fonte e os esquemáticos das práticas desenvolvidas para a disciplina de **Microcontroladores** do curso de Engenharia de Computação / Sistemas de Informação da **Universidade Federal do Ceará (UFC) - Campus Quixadá**.
+Este repositório contém o código-fonte e os esquemáticos das práticas desenvolvidas para a disciplina de **Microcontroladores** do curso de Engenharia de Computação **Universidade Federal do Ceará (UFC) - Campus Quixadá**.
 
 As práticas são focadas na arquitetura ARM Cortex-M3, utilizando a placa de desenvolvimento **STM32F103C8T6 (Bluepill)** e programação em **Bare Metal** no ambiente STM32CubeIDE.
 
