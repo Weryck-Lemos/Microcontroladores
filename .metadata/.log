@@ -2548,3 +2548,83 @@ java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratic
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-06-10 16:24:27.244
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:46:04.115
+!MESSAGE Indexed 'Pratica05-PWM' (3 sources, 53 headers) in 0,197 sec: 1.954 declarations; 2.863 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:46:40.354
+!MESSAGE Indexed 'Pratica06-AD' (4 sources, 53 headers) in 0,107 sec: 1.956 declarations; 2.865 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,041%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:47:03.544
+!MESSAGE Indexed 'Pratica04-TIMER' (3 sources, 61 headers) in 0,421 sec: 2.673 declarations; 4.393 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,028%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:47:32.400
+!MESSAGE Indexed 'Pratica04-Timer' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2026-06-10 16:47:42.689
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:335)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2026-06-10 16:47:42.689
+!MESSAGE /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+!STACK 0
+java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:335)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:48:04.115
+!MESSAGE Indexed 'Prati' (3 sources, 61 headers) in 0,34 sec: 2.673 declarations; 4.393 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,028%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 16:48:16.735
+!MESSAGE Indexed 'Pratica04-Timer' (3 sources, 53 headers) in 0,159 sec: 1.954 declarations; 2.863 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,042%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2026-06-10 16:48:51.870
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:335)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2026-06-10 16:48:51.871
+!MESSAGE /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+!STACK 0
+java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratica04-Timer/Debug/Pratica04-PWM.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:335)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
