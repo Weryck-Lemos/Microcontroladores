@@ -1,0 +1,44 @@
+#include <stdint.h>
+#include "stm32f1xx.h"
+
+volatile int SysTick_TASK = 0;
+volatile uint8_t cor = 0;
+
+void SysTick_Handler(void)
+{
+    SysTick_TASK = 1;
+}
+
+int main(void)
+{
+    // 1. Habilita o clock do GPIOA
+    RCC->APB2ENR |= (1 << 2);
+
+    // 2. Configura PA0, PA1 e PA2 como Output
+    GPIOA->CRL &= ~0xFFF;
+    GPIOA->CRL |= 0x222;
+    GPIOA->ODR &= ~(0x7);
+
+    // 3. A FORMA CORRETA E SEGURA DE CONFIGURAR O SYSTICK:
+    // SystemCoreClock é a velocidade real do chip.
+    // Dividir por 10 significa que a interrupção vai rodar 10 vezes por segundo (a cada 100ms)
+    // Se quiser exatamente 1 segundo, mude para: SysTick_Config(SystemCoreClock);
+    if (SysTick_Config(SystemCoreClock / 10))
+    {
+        // Se retornar 1, deu erro no tamanho do número (mas aqui está seguro)
+        while (1);
+    }
+
+    while(1)
+    {
+        if(SysTick_TASK)
+        {
+            SysTick_TASK = 0; // Reseta a flag
+
+            // Limpa os 3 primeiros pinos e aplica a nova cor
+            GPIOA->ODR = (GPIOA->ODR & ~0x7) | (cor & 0x7);
+
+            cor = (cor + 1) % 8; // Avança para a próxima combinação (0 a 7)
+        }
+    }
+}

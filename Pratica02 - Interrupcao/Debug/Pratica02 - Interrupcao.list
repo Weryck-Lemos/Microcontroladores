@@ -122,7 +122,7 @@ void EXTI9_5_IRQHandler(void); //PB5 ate PB9
 int main(void) {
  80001a8:	b580      	push	{r7, lr}
  80001aa:	af00      	add	r7, sp, #0
-    //habilitar clock
+    //habilitar porta a,b e AFIO(interrupcao)
     RCC->APB2ENR |= (1 << 2) | (1 << 3) | (1 << 0);
  80001ac:	4b2a      	ldr	r3, [pc, #168]	@ (8000258 <main+0xb0>)
  80001ae:	699b      	ldr	r3, [r3, #24]
@@ -147,29 +147,28 @@ int main(void) {
  80001d6:	6013      	str	r3, [r2, #0]
 
     //PB0, PB1, PB5 input pull-up
-    GPIOB->CRL &= ~( (0xF << 0) | (0xF << 4) | (0xF << 20) );
+    GPIOB->CRL &= ~( (0xF << 0)|(0xF << 4) | (0xF << 20) );
  80001d8:	4b21      	ldr	r3, [pc, #132]	@ (8000260 <main+0xb8>)
  80001da:	681b      	ldr	r3, [r3, #0]
  80001dc:	4a20      	ldr	r2, [pc, #128]	@ (8000260 <main+0xb8>)
  80001de:	f423 0370 	bic.w	r3, r3, #15728640	@ 0xf00000
  80001e2:	f023 03ff 	bic.w	r3, r3, #255	@ 0xff
  80001e6:	6013      	str	r3, [r2, #0]
-    GPIOB->CRL |=  ( (0x8 << 0) | (0x8 << 4) | (0x8 << 20) );
+    GPIOB->CRL |=  ( (0x8 << 0)|(0x8 << 4) | (0x8 << 20) );
  80001e8:	4b1d      	ldr	r3, [pc, #116]	@ (8000260 <main+0xb8>)
  80001ea:	681b      	ldr	r3, [r3, #0]
  80001ec:	4a1c      	ldr	r2, [pc, #112]	@ (8000260 <main+0xb8>)
  80001ee:	f443 0300 	orr.w	r3, r3, #8388608	@ 0x800000
  80001f2:	f043 0388 	orr.w	r3, r3, #136	@ 0x88
  80001f6:	6013      	str	r3, [r2, #0]
-    GPIOB->ODR |=  (1 << 0) | (1 << 1) | (1 << 5); // ativa Pull-up
+    GPIOB->ODR |=  (1 << 0) | (1 << 1) |(1 << 5);
  80001f8:	4b19      	ldr	r3, [pc, #100]	@ (8000260 <main+0xb8>)
  80001fa:	68db      	ldr	r3, [r3, #12]
  80001fc:	4a18      	ldr	r2, [pc, #96]	@ (8000260 <main+0xb8>)
  80001fe:	f043 0323 	orr.w	r3, r3, #35	@ 0x23
  8000202:	60d3      	str	r3, [r2, #12]
 
-    //configurar AFIO para mapear os pinos como EXTI
-    // AFIO->EXTICR[0] pinos 0 a 3. AFIO->EXTICR[1] pinos 4 a 7.
+
     AFIO->EXTICR[0] |= (0x1 << 0);  // mapeia PB0 para EXTI0
  8000204:	4b17      	ldr	r3, [pc, #92]	@ (8000264 <main+0xbc>)
  8000206:	689b      	ldr	r3, [r3, #8]
@@ -189,7 +188,6 @@ int main(void) {
  8000222:	f043 0310 	orr.w	r3, r3, #16
  8000226:	60d3      	str	r3, [r2, #12]
 
-    //EXTI
     EXTI->FTSR |= (1 << 0) | (1 << 1) | (1 << 5); // trigger descida 0V
  8000228:	4b0f      	ldr	r3, [pc, #60]	@ (8000268 <main+0xc0>)
  800022a:	68db      	ldr	r3, [r3, #12]
@@ -210,12 +208,11 @@ int main(void) {
     NVIC_EnableIRQ(EXTI1_IRQn);
  8000246:	2007      	movs	r0, #7
  8000248:	f7ff ff92 	bl	8000170 <__NVIC_EnableIRQ>
-    NVIC_EnableIRQ(EXTI9_5_IRQn); // PB5 compartilha esse canal com PB6-PB9
+    NVIC_EnableIRQ(EXTI9_5_IRQn);
  800024c:	2017      	movs	r0, #23
  800024e:	f7ff ff8f 	bl	8000170 <__NVIC_EnableIRQ>
 
     while(1) {
-
         __WFI();
  8000252:	bf30      	wfi
  8000254:	e7fd      	b.n	8000252 <main+0xaa>

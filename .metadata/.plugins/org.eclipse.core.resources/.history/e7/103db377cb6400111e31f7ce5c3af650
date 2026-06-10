@@ -1,0 +1,64 @@
+#include <stdint.h>
+#include "stm32f1xx.h"
+
+// Flag que avisa ao loop principal que se passou 1 segundo
+volatile int SysTick_TASK = 0;
+volatile uint8_t cor = 0;
+
+void SysTick_Handler(void)
+{
+    // Esta função é chamada automaticamente pelo hardware a cada 1 segundo
+    SysTick_TASK = 1;
+}
+
+int main(void)
+{
+    // 1. Habilitar o clock para a Porta A (onde está o seu LED RGB)
+    RCC->APB2ENR |= (1 << 2);
+
+    // 2. Configurar PA0, PA1 e PA2 como Saída Digital (Push-Pull, 2MHz)
+    GPIOA->CRL &= 0xFFFFF000; // Limpa os últimos 3 neles (pinos 0, 1 e 2)
+    GPIOA->CRL |= 0x00000222; // Define pinos 0, 1 e 2 como saída
+
+    // Reset inicial (apaga todos os pinos do LED RGB)
+    GPIOA->ODR &= ~(0x7);
+
+    /* Configuração do System Tick igual à do Professor */
+    uint32_t ticks = 1000000; // 1 milhão de ciclos = 1 segundo (já que o clock é dividido por 8)
+    
+    if ((ticks - 1UL) <= 0xFFFFFFUL)
+    {
+        /* Define o registrador de recarga */
+        SysTick->LOAD  = (uint32_t)(ticks - 1UL);
+
+        /* Limpa o valor atual do contador */
+        SysTick->VAL   = 0UL;           
+
+        /* Configuração dos bits de controle:
+         * Bit 2 = 0 -> clock do SysTick é o clock interno dividido por 8 (AHB/8)
+         * Bit 1 = 1 -> Habilita a interrupção do SysTick
+         * Bit 0 = 1 -> Liga o temporizador
+         */
+        SysTick->CTRL  = (0 << 2) |     
+                         (1 << 1) |     
+                         (1 << 0);
+    }
+
+    while(1)
+    {
+        // Se a interrupção avisar que se passou 1 segundo
+        if(SysTick_TASK)
+        {
+            SysTick_TASK = 0; // Reseta a flag de aviso
+
+            // Limpa a cor anterior apagando PA0, PA1 e PA2
+            GPIOA->ODR &= ~(0x7);
+
+            // Envia a nova combinação binária da cor para os pinos
+            GPIOA->ODR |= (cor & 0x7);
+
+            // Avança para a próxima cor da lista (0 a 7) e reinicia
+            cor = (cor + 1) % 8;
+        }
+    }
+}

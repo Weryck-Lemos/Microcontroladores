@@ -1,0 +1,43 @@
+#include "stm32f1xx.h"
+//led;  PA0, PA1, PA2
+//botao: PB0, PB1, PB5
+
+int main(void) {
+    // habilitar clock  A e B
+    RCC->APB2ENR |= (1 << 2) | (1 << 3);
+
+    //led output
+    GPIOA->CRL &= ~(0xFFF);  //limpa os 12 primeiros bits
+    GPIOA->CRL |=  (0x222); //coloca 0010 (output) nos 3 primeiros blocos
+
+
+    
+    GPIOB->CRL &= ~((0xF << 0) | (0xF << 4) | (0xF << 20) ); //limpar bits 0, 1 e 5:
+    GPIOB->CRL |=  ( (0x8 << 0) | (0x8 << 4) | (0x8 << 20) ); //coloca 1000 (input)
+    GPIOB->ODR |= (1 << 0) | (1 << 1) | (1 << 5);  //ativar o pull-up
+
+    while(1) {
+        //b1
+        if (!(GPIOB->IDR & 1)) {
+            GPIOA->ODR |= 1;
+        } else {
+            GPIOA->ODR &= ~1;
+        }
+
+        GPIOA->ODR |= 1;
+
+        //b2
+        if (!(GPIOB->IDR & 2)) {
+            GPIOA->ODR |= 2;
+        } else {
+            GPIOA->ODR &= ~2;
+        }
+
+        //b3
+        if (!(GPIOB->IDR & (1 << 5))) {
+            GPIOA->ODR |= (1 << 2);
+        } else {
+            GPIOA->ODR &= (0 << 2);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+14:53:20 **** Incremental Build of configuration Debug for project Pratica03-Systick ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica03-Systick/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica03-Systick/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica03-Systick/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica03-Systick.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica03-Systick/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica03-Systick.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica03-Systick.elf
+ 
+arm-none-eabi-size  Pratica03-Systick.elf 
+arm-none-eabi-objdump -h -S Pratica03-Systick.elf  > "Pratica03-Systick.list"
+   text	   data	    bss	    dec	    hex	filename
+    780	      0	   1576	   2356	    934	Pratica03-Systick.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica03-Systick.list
+ 
+
+14:53:21 Build Finished. 0 errors, 0 warnings. (took 172ms)
+
