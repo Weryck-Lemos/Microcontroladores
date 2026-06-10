@@ -17,6 +17,9 @@ A segunda prática introduziu o conceito de interrupções externas (EXTI) e o c
 ### 3.Temporização por Hardware (SysTick) e Sequenciador de Cores RGB
 Na terceira prática, utilizamos o temporizador interno do núcleo ARM, o SysTick, para criar uma base de tempo precisa sem bloquear a CPU com atrasos vazios. O temporizador foi configurado com um divisor de clock por 8 (AHB/8) para gerar interrupções periódicas a cada 1 segundo. A cada disparo do handler, uma variável contadora avança através de uma sequência de 0 a 7, aplicando uma máscara binária diretamente no registrador ODR da Porta A (pinos PA0, PA1 e PA2) para alternar ciclicamente entre as 8 combinações possíveis de cores do LED RGB.
 
+### 4. Temporização por Hardware (SysTick) e Sequenciador Complexo RGB
+Na terceira prática, exploramos o temporizador interno do núcleo ARM, o SysTick, para criar uma base de tempo precisa por hardware, evitando o uso de loops de atraso que bloqueiam a CPU. Configurando o temporizador com um divisor de clock por 8 (AHB/8) e uma recarga de 1.000.000 de ciclos, geramos interrupções periódicas exatas a cada 1 segundo. Para atender ao desafio de piscar duas vezes cada cor antes de avançar, implementamos uma máquina de estados com 4 etapas dentro do fluxo assíncrono. Além disso, para garantir a ordem exata exigida pelo enunciado (Vermelho, Verde, Azul, Amarelo, Ciano, Roxo, Branco), os valores binários correspondentes aos pinos PA0, PA1 e PA2 foram mapeados em um vetor indexado, desviando da contagem binária pura para estabelecer a sequência correta de mistura de cores no LED RGB.
+
 ---
 
 ## 🛠️ Hardware Utilizado

@@ -1420,3 +1420,89 @@ Finished building: default.size.stdout
  
 Finished building: Pratica03-Systick.list
  
+16:24:26 **** Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c: In function 'main':
+../Src/main.c:38:9: error: 'estado_piscada' undeclared (first use in this function)
+   38 |         estado_piscada ++;
+      |         ^~~~~~~~~~~~~~
+../Src/main.c:38:9: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:24:49 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica04-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica04-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica04-PWM.elf
+ 
+arm-none-eabi-size  Pratica04-PWM.elf 
+arm-none-eabi-objdump -h -S Pratica04-PWM.elf  > "Pratica04-PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+    904	      4	   1572	   2480	    9b0	Pratica04-PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica04-PWM.list
+ 
+16:24:52 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-size  Pratica04-PWM.elf 
+   text	   data	    bss	    dec	    hex	filename
+    904	      4	   1572	   2480	    9b0	Pratica04-PWM.elf
+Finished building: default.size.stdout
+ 
+16:35:00 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:50:29: error: assignment of read-only location 'cores[i]'
+   50 |         if (cor>7) cores[i] = 1;
+      |                             ^
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:35:22 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica04-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica04-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica04-PWM.elf
+ 
+arm-none-eabi-size  Pratica04-PWM.elf 
+arm-none-eabi-objdump -h -S Pratica04-PWM.elf  > "Pratica04-PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+    976	      4	   1580	   2560	    a00	Pratica04-PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica04-PWM.list
+ 
+16:37:31 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica04-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica04-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica04-PWM.elf
+ 
+arm-none-eabi-size  Pratica04-PWM.elf 
+arm-none-eabi-objdump -h -S Pratica04-PWM.elf  > "Pratica04-PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+    948	      0	   1576	   2524	    9dc	Pratica04-PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica04-PWM.list
+ 
+16:39:34 **** Incremental Build of configuration Debug for project Pratica04-PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica04-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica04-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica04-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica04-PWM.elf
+ 
+arm-none-eabi-size  Pratica04-PWM.elf 
+arm-none-eabi-objdump -h -S Pratica04-PWM.elf  > "Pratica04-PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+    960	      0	   1576	   2536	    9e8	Pratica04-PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica04-PWM.list
+ 

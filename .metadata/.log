@@ -2542,3 +2542,9 @@ java.io.FileNotFoundException: /home/ubuntu/Documentos/Microcontroladores/Pratic
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 15:08:09.623
+!MESSAGE Indexed 'Pratica04-PWM' (3 sources, 53 headers) in 0,089 sec: 1.954 declarations; 2.863 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,042%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-06-10 16:24:27.244
+!MESSAGE Won't launch debug session since we failed to locate the binary.

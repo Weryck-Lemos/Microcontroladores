@@ -1,0 +1,53 @@
+#include "stm32f1xx.h"
+
+volatile int SysTick_TASK = 0;
+volatile int estado = 0;
+volatile int i = 0;
+const int cores[7] = {1, 2, 4, 3, 6, 5, 7};
+
+void SysTick_Handler(){
+  SysTick_TASK = 1;
+}
+
+int main(){
+  RCC->APB2ENR |= (1<<2);
+
+  GPIOA->CRL &= ~0XFFF;
+  GPIOA->CRL |= 0x222;
+
+  GPIOA->ODR &= ~(0x7);
+
+  int ticks = 1000000;
+
+  if((ticks - 1UL) <= 0xFFFFFFUL){
+    SysTick->LOAD = (uint32_t)(ticks-1UL);
+    SysTick->VAL = 0UL;
+    SysTick->CTRL = (0<<2)|(1<<1)|(1<<0);
+  }
+
+  while(1){
+    if(SysTick_TASK){
+      SysTick_TASK = 0;
+
+      if(!estado){
+        GPIOA->ODR &=~(0x7);
+        GPIOA->ODR |= (cores[i] & 0x7);
+        estado = 1;
+      }
+      else if (estado == 1) {
+        GPIOA->ODR &= ~(0x7);
+        estado ++;
+      }
+      else if (estado == 2) {
+          GPIOA->ODR &= ~(0x7);
+          GPIOA->ODR |= (cores[i] & 0x7);
+          estado ++;
+      }
+      else if (estado == 3) {
+        GPIOA->ODR &= ~(0x7);
+        estado = 0;
+        i = (i+1)%7;
+      }
+    }
+  }
+}
