@@ -26,6 +26,13 @@ Nesta prática, implementamos o controle dinâmico de um LED RGB para alternar s
 ### 6. ADC Multiplexado com DMA e Controle de Potência via PWM
 Nesta prática, avançamos para o processamento de sinais analógicos e controle de potência utilizando quatro periféricos de hardware integrados. O objetivo foi controlar de forma independente a intensidade do brilho das três cores de um LED RGB utilizando três potenciômetros. Configuramos o conversor A/D (ADC1) no modo SCAN (varredura) para ler sequencialmente os canais analógicos PA0, PA1 e PA2 de forma contínua. Para evitar o gargalo da CPU e a sobreposição de dados no registrador de saída do ADC, configuramos o canal 1 do DMA1 em modo circular para transferir automaticamente os dados de 12 bits diretamente para um vetor na memória RAM através do barramento de alta velocidade (AHB). Por fim, configuramos três canais do Timer 3 (TIM3) operando em modo PWM 1 nos pinos PA6, PA7 e PB0, sincronizando o teto da contagem (ARR) com a resolução do ADC (0 a 4095) para modular o ciclo de trabalho e misturar as cores em tempo real sem ônus para o processador.
 
+### 7. Controle de Razão Cíclica de PWM via Comunicação Serial (USART)
+Nesta prática, implementamos o controle dinâmico da intensidade e do modo de operação de um LED RGB através de comandos textuais recebidos por comunicação serial assíncrona (USART1). O sistema foi arquitetado de forma modular, utilizando uma interrupção por recepção de hardware (`USART1_IRQHandler`) que atua com latência mínima, encarregada exclusivamente de capturar cada caractere do registrador de dados (`DR`) e sinalizar uma flag de status (`MAIN_SM`). Toda a lógica pesada de decodificação de strings, gerência do buffer de recepção (`rx_buffer`) e validação dos caracteres terminadores de linha (`\n` ou `\r`) ocorre em segundo plano dentro do laço principal (`while(1)`), garantindo previsibilidade e evitando estouro de pilha.
+
+O firmware processa dois perfis de comandos enviados do terminal:
+1. **Controle Individual de Canais (`rXX\n`, `gXX\n`, `bXX\n`):** Filtra os caracteres iniciais para identificar o canal desejado (Vermelho, Verde ou Azul) e converte o argumento numérico subsequente de porcentagem {00 a 99} para a resolução de 12 bits do Timer 3 através da função `atoi()`, atualizando os registradores de captura e comparação (`CCR1`, `CCR2` e `CCR3`).
+2. **Alternância de Modo (`d\n`):** Inverte o estado da flag `modo_demo` (*toggle*). Quando ativo, o sistema passa a executar a rotina de esmaecimento harmônico contínuo controlada pelo Timer 2 (TIM2) via interrupções de 5 ms; quando inativo, o temporizador é ignorado e os canais obedecem estritamente aos valores estáticos injetados via terminal.
+
 ---
 
 ## 🛠️ Hardware Utilizado

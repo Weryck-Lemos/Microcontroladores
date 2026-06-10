@@ -2802,3 +2802,9 @@ Reason: (1) Failed to connect to device. Please check power and cabling to targe
 !SUBENTRY 2 com.st.stm32cube.ide.mcu.toolchain 4 0 2026-06-10 20:09:46.750
 !MESSAGE Error in initializing ST-LINK device.
 Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-10 20:24:14.081
+!MESSAGE Indexed 'Pratica07-USART' (3 sources, 53 headers) in 0,136 sec: 1.954 declarations; 2.863 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,042%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-06-10 20:24:47.042
+!MESSAGE Won't launch debug session since we failed to locate the binary.

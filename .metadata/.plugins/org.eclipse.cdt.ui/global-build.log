@@ -64,3 +64,88 @@ arm-none-eabi-size  Pratica05-PWM.elf
    1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
 Finished building: default.size.stdout
  
+20:24:46 **** Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c: In function 'main':
+../Src/main.c:92:20: error: 'USART1_CR1_RE' undeclared (first use in this function); did you mean 'USART_CR1_RE'?
+   92 |     USART1->CR1 |= USART1_CR1_RE;
+      |                    ^~~~~~~~~~~~~
+      |                    USART_CR1_RE
+../Src/main.c:92:20: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:94:20: error: 'USART1_CR1_RXNEIE' undeclared (first use in this function); did you mean 'USART_CR1_RXNEIE'?
+   94 |     USART1->CR1 |= USART1_CR1_RXNEIE;
+      |                    ^~~~~~~~~~~~~~~~~
+      |                    USART_CR1_RXNEIE
+../Src/main.c:96:20: error: 'USART1_CR1_UE' undeclared (first use in this function); did you mean 'USART_CR1_UE'?
+   96 |     USART1->CR1 |= USART1_CR1_UE;
+      |                    ^~~~~~~~~~~~~
+      |                    USART_CR1_UE
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:25:25 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica07-USART.elf
+ 
+arm-none-eabi-size  Pratica07-USART.elf 
+arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
+   text	   data	    bss	    dec	    hex	filename
+   2368	     84	   1900	   4352	   1100	Pratica07-USART.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica07-USART.list
+ 
+20:25:28 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-size  Pratica07-USART.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2368	     84	   1900	   4352	   1100	Pratica07-USART.elf
+Finished building: default.size.stdout
+ 
+20:37:57 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:1:1: error: stray '`' in program
+    1 | ```c
+      | ^
+../Src/main.c:1:2: error: stray '`' in program
+    1 | ```c
+      |  ^
+../Src/main.c:1:3: error: stray '`' in program
+    1 | ```c
+      |   ^
+../Src/main.c:1:5: error: expected ';' before 'typedef'
+    1 | ```c
+      |     ^
+      |     ;
+../Src/main.c:152:1: error: stray '`' in program
+  152 | ```
+      | ^
+../Src/main.c:152:2: error: stray '`' in program
+  152 | ```
+      |  ^
+../Src/main.c:152:3: error: stray '`' in program
+  152 | ```
+      |   ^
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:38:35 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica07-USART.elf
+ 
+arm-none-eabi-size  Pratica07-USART.elf 
+arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
+   text	   data	    bss	    dec	    hex	filename
+   2616	     84	   1900	   4600	   11f8	Pratica07-USART.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica07-USART.list
+ 
