@@ -1,0 +1,10 @@
+20:10:40 **** Incremental Build of configuration Debug for project Pratica05-PWM ****
+make -j8 all 
+arm-none-eabi-size  Pratica05-PWM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
+Finished building: default.size.stdout
+ 
+
+20:10:40 Build Finished. 0 errors, 0 warnings. (took 75ms)
+

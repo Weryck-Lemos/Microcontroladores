@@ -1,10 +1,10 @@
-17:02:19 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+20:07:14 **** Incremental Build of configuration Debug for project Pratica06-AD ****
 make -j8 all 
 arm-none-eabi-size  Pratica06-AD.elf 
    text	   data	    bss	    dec	    hex	filename
-   1056	      0	   1576	   2632	    a48	Pratica06-AD.elf
+   1048	      0	   1576	   2624	    a40	Pratica06-AD.elf
 Finished building: default.size.stdout
  
 
-17:02:20 Build Finished. 0 errors, 0 warnings. (took 78ms)
+20:07:14 Build Finished. 0 errors, 0 warnings. (took 74ms)
 
