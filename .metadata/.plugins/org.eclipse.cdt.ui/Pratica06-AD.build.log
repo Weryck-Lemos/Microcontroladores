@@ -1,10 +1,18 @@
-20:07:14 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+16:51:38 **** Incremental Build of configuration Debug for project Pratica06-AD ****
 make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
 arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
    text	   data	    bss	    dec	    hex	filename
-   1048	      0	   1576	   2624	    a40	Pratica06-AD.elf
+   1068	      0	   1576	   2644	    a54	Pratica06-AD.elf
 Finished building: default.size.stdout
  
+Finished building: Pratica06-AD.list
+ 
 
-20:07:14 Build Finished. 0 errors, 0 warnings. (took 74ms)
+16:51:39 Build Finished. 0 errors, 0 warnings. (took 172ms)
 

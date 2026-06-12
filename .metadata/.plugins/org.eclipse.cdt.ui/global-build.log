@@ -1,151 +1,576 @@
-20:07:10 **** Incremental Build of configuration Debug for project Pratica05-PWM ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Pratica05-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica05-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Pratica05-PWM.elf
- 
-arm-none-eabi-size  Pratica05-PWM.elf 
-arm-none-eabi-objdump -h -S Pratica05-PWM.elf  > "Pratica05-PWM.list"
-   text	   data	    bss	    dec	    hex	filename
-   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
-Finished building: default.size.stdout
- 
-Finished building: Pratica05-PWM.list
- 
-20:07:14 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+15:25:56 **** Incremental Build of configuration Debug for project Pratica06-AD ****
 make -j8 all 
 arm-none-eabi-size  Pratica06-AD.elf 
    text	   data	    bss	    dec	    hex	filename
-   1048	      0	   1576	   2624	    a40	Pratica06-AD.elf
+   1140	      0	   1576	   2716	    a9c	Pratica06-AD.elf
 Finished building: default.size.stdout
  
-20:07:33 **** Build of configuration Debug for project Pratica02 - Interrupcao ****
+15:26:00 **** Incremental Build of configuration Debug for project Pratica06-AD ****
 make -j8 all 
-arm-none-eabi-size  Pratica02\ -\ Interrupcao.elf 
+arm-none-eabi-size  Pratica06-AD.elf 
    text	   data	    bss	    dec	    hex	filename
-    976	      0	   1568	   2544	    9f0	Pratica02 - Interrupcao.elf
+   1140	      0	   1576	   2716	    a9c	Pratica06-AD.elf
 Finished building: default.size.stdout
  
-20:07:52 **** Incremental Build of configuration Debug for project Pratica05-PWM ****
-make -j8 all 
-arm-none-eabi-size  Pratica05-PWM.elf 
-   text	   data	    bss	    dec	    hex	filename
-   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
-Finished building: default.size.stdout
- 
-20:09:40 **** Build of configuration Debug for project Pratica05-PWM ****
-make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "Pratica05-PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica05-PWM/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica05-PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Pratica05-PWM.elf
- 
-arm-none-eabi-size  Pratica05-PWM.elf 
-arm-none-eabi-objdump -h -S Pratica05-PWM.elf  > "Pratica05-PWM.list"
-   text	   data	    bss	    dec	    hex	filename
-   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
-Finished building: default.size.stdout
- 
-Finished building: Pratica05-PWM.list
- 
-20:09:44 **** Incremental Build of configuration Debug for project Pratica05-PWM ****
-make -j8 all 
-arm-none-eabi-size  Pratica05-PWM.elf 
-   text	   data	    bss	    dec	    hex	filename
-   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
-Finished building: default.size.stdout
- 
-20:10:40 **** Incremental Build of configuration Debug for project Pratica05-PWM ****
-make -j8 all 
-arm-none-eabi-size  Pratica05-PWM.elf 
-   text	   data	    bss	    dec	    hex	filename
-   1256	      4	   1572	   2832	    b10	Pratica05-PWM.elf
-Finished building: default.size.stdout
- 
-20:24:46 **** Build of configuration Debug for project Pratica07-USART ****
-make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-../Src/main.c: In function 'main':
-../Src/main.c:92:20: error: 'USART1_CR1_RE' undeclared (first use in this function); did you mean 'USART_CR1_RE'?
-   92 |     USART1->CR1 |= USART1_CR1_RE;
-      |                    ^~~~~~~~~~~~~
-      |                    USART_CR1_RE
-../Src/main.c:92:20: note: each undeclared identifier is reported only once for each function it appears in
-../Src/main.c:94:20: error: 'USART1_CR1_RXNEIE' undeclared (first use in this function); did you mean 'USART_CR1_RXNEIE'?
-   94 |     USART1->CR1 |= USART1_CR1_RXNEIE;
-      |                    ^~~~~~~~~~~~~~~~~
-      |                    USART_CR1_RXNEIE
-../Src/main.c:96:20: error: 'USART1_CR1_UE' undeclared (first use in this function); did you mean 'USART_CR1_UE'?
-   96 |     USART1->CR1 |= USART1_CR1_UE;
-      |                    ^~~~~~~~~~~~~
-      |                    USART_CR1_UE
-make: *** [Src/subdir.mk:25: Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-20:25:25 **** Incremental Build of configuration Debug for project Pratica07-USART ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Pratica07-USART.elf
- 
-arm-none-eabi-size  Pratica07-USART.elf 
-arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
-   text	   data	    bss	    dec	    hex	filename
-   2368	     84	   1900	   4352	   1100	Pratica07-USART.elf
-Finished building: default.size.stdout
- 
-Finished building: Pratica07-USART.list
- 
-20:25:28 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+15:26:37 **** Incremental Build of configuration Debug for project Pratica07-USART ****
 make -j8 all 
 arm-none-eabi-size  Pratica07-USART.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2368	     84	   1900	   4352	   1100	Pratica07-USART.elf
-Finished building: default.size.stdout
- 
-20:37:57 **** Incremental Build of configuration Debug for project Pratica07-USART ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-../Src/main.c:1:1: error: stray '`' in program
-    1 | ```c
-      | ^
-../Src/main.c:1:2: error: stray '`' in program
-    1 | ```c
-      |  ^
-../Src/main.c:1:3: error: stray '`' in program
-    1 | ```c
-      |   ^
-../Src/main.c:1:5: error: expected ';' before 'typedef'
-    1 | ```c
-      |     ^
-      |     ;
-../Src/main.c:152:1: error: stray '`' in program
-  152 | ```
-      | ^
-../Src/main.c:152:2: error: stray '`' in program
-  152 | ```
-      |  ^
-../Src/main.c:152:3: error: stray '`' in program
-  152 | ```
-      |   ^
-make: *** [Src/subdir.mk:25: Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-20:38:35 **** Incremental Build of configuration Debug for project Pratica07-USART ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Pratica07-USART.elf
- 
-arm-none-eabi-size  Pratica07-USART.elf 
-arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
    text	   data	    bss	    dec	    hex	filename
    2616	     84	   1900	   4600	   11f8	Pratica07-USART.elf
 Finished building: default.size.stdout
  
+15:26:47 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-size  Pratica06-AD.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1140	      0	   1576	   2716	    a9c	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+15:28:16 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1152	      0	   1576	   2728	    aa8	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:29:43 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1048	      0	   1576	   2624	    a40	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:33:34 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica07-USART.elf
+ 
+arm-none-eabi-size  Pratica07-USART.elf 
+arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
+   text	   data	    bss	    dec	    hex	filename
+   1048	      0	   1576	   2624	    a40	Pratica07-USART.elf
+Finished building: default.size.stdout
+ 
 Finished building: Pratica07-USART.list
+ 
+15:42:38 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+    980	      0	   1568	   2548	    9f4	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:43:01 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica07-USART.elf
+ 
+arm-none-eabi-size  Pratica07-USART.elf 
+arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
+   text	   data	    bss	    dec	    hex	filename
+    980	      0	   1568	   2548	    9f4	Pratica07-USART.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica07-USART.list
+ 
+15:43:52 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1048	      0	   1576	   2624	    a40	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:47:45 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	      0	   1576	   2660	    a64	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:51:30 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	      0	   1568	   2656	    a60	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:51:45 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	      0	   1568	   2656	    a60	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:52:25 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	      0	   1576	   2660	    a64	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:52:41 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	      0	   1568	   2656	    a60	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:54:14 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1144	      0	   1576	   2720	    aa0	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:56:08 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1164	      0	   1576	   2740	    ab4	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:57:14 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	      0	   1576	   2660	    a64	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:52:01 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1080	      0	   1576	   2656	    a60	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+15:52:43 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	      0	   1576	   2660	    a64	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+16:16:02 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-size  Pratica06-AD.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1084	      0	   1576	   2660	    a64	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+16:35:26 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/ADC.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ADC.d" -MT"Src/ADC.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/ADC.o"
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/gpio.d" -MT"Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/gpio.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/timer3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timer3.d" -MT"Src/timer3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/timer3.o"
+../Src/DMA.c: In function 'DMA_Init':
+../Src/timer3.c: In function 'TIM3_PWM_Init':
+../Src/gpio.c: In function 'GPIO_Init':
+../Src/DMA.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->AHBENR |= RCC_AHBENR_DMA1EN; //clock DMA1
+      |     ^~~
+../Src/timer3.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+      |     ^~~
+../Src/gpio.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |     ^~~
+../Src/ADC.c: In function 'ADC_Init':
+../Src/DMA.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/gpio.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/timer3.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/ADC.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+      |     ^~~
+../Src/ADC.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/gpio.c:2:21: error: 'RCC_APB2ENR_IOPAEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                     ^~~~~~~~~~~~~~~~~~
+../Src/timer3.c:2:21: error: 'RCC_APB1ENR_TIM3EN' undeclared (first use in this function)
+    2 |     RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+      |                     ^~~~~~~~~~~~~~~~~~
+../Src/ADC.c:2:21: error: 'RCC_APB2ENR_ADC1EN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+      |                     ^~~~~~~~~~~~~~~~~~
+../Src/DMA.c:2:20: error: 'RCC_AHBENR_DMA1EN' undeclared (first use in this function)
+    2 |     RCC->AHBENR |= RCC_AHBENR_DMA1EN; //clock DMA1
+      |                    ^~~~~~~~~~~~~~~~~
+../Src/timer3.c:3:5: error: 'TIM3' undeclared (first use in this function)
+    3 |     TIM3->ARR = 4095;
+      |     ^~~~
+../Src/ADC.c:4:5: error: 'ADC1' undeclared (first use in this function)
+    4 |     ADC1->SQR1 = (2 << 20);
+      |     ^~~~
+../Src/gpio.c:2:42: error: 'RCC_APB2ENR_IOPBEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                                          ^~~~~~~~~~~~~~~~~~
+../Src/DMA.c:4:5: error: 'DMA1_Channel1' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |     ^~~~~~~~~~~~~
+../Src/DMA.c:4:28: error: 'uint32_t' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |                            ^~~~~~~~
+../Src/DMA.c:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; this is probably fixable by adding '#include <stdint.h>'
+  +++ |+#include <stdint.h>
+    1 | void DMA_Init(){
+../Src/DMA.c:4:39: error: 'ADC1' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |                                       ^~~~
+../Src/gpio.c:2:63: error: 'RCC_APB2ENR_AFIOEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                                                               ^~~~~~~~~~~~~~~~~~
+../Src/DMA.c:5:37: error: expected ';' before 'adc_buffer'
+    5 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+      |                                     ;
+../Src/gpio.c:4:5: error: 'GPIOA' undeclared (first use in this function)
+    4 |     GPIOA->CRL &= ~0xFFF;
+      |     ^~~~~
+../Src/DMA.c:8:27: error: 'DMA_CCR_EN' undeclared (first use in this function)
+    8 |     DMA1_Channel1->CCR |= DMA_CCR_EN;
+      |                           ^~~~~~~~~~
+../Src/gpio.c:11:5: error: 'GPIOB' undeclared (first use in this function)
+   11 |     GPIOB->CRL &= ~0xF;
+      |     ^~~~~
+../Src/timer3.c:6:20: error: 'TIM_CCMR1_OC1PE' undeclared (first use in this function)
+    6 |     TIM3->CCMR1 |= TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+      |                    ^~~~~~~~~~~~~~~
+../Src/timer3.c:6:38: error: 'TIM_CCMR1_OC2PE' undeclared (first use in this function)
+    6 |     TIM3->CCMR1 |= TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+      |                                      ^~~~~~~~~~~~~~~
+../Src/timer3.c:8:20: error: 'TIM_CCMR2_OC3PE' undeclared (first use in this function)
+    8 |     TIM3->CCMR2 |= TIM_CCMR2_OC3PE;
+      |                    ^~~~~~~~~~~~~~~
+../Src/ADC.c:9:18: error: 'ADC_CR1_SCAN' undeclared (first use in this function)
+    9 |     ADC1->CR1 |= ADC_CR1_SCAN;
+      |                  ^~~~~~~~~~~~
+../Src/timer3.c:10:19: error: 'TIM_CCER_CC1E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                   ^~~~~~~~~~~~~
+../Src/timer3.c:10:35: error: 'TIM_CCER_CC2E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                                   ^~~~~~~~~~~~~
+../Src/timer3.c:10:51: error: 'TIM_CCER_CC3E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                                                   ^~~~~~~~~~~~~
+../Src/ADC.c:10:18: error: 'ADC_CR2_DMA' undeclared (first use in this function)
+   10 |     ADC1->CR2 |= ADC_CR2_DMA;
+      |                  ^~~~~~~~~~~
+../Src/timer3.c:12:18: error: 'TIM_CR1_CEN' undeclared (first use in this function)
+   12 |     TIM3->CR1 |= TIM_CR1_CEN;
+      |                  ^~~~~~~~~~~
+../Src/ADC.c:11:18: error: 'ADC_CR2_ADON' undeclared (first use in this function)
+   11 |     ADC1->CR2 |= ADC_CR2_ADON;
+      |                  ^~~~~~~~~~~~
+make: *** [Src/subdir.mk:37: Src/gpio.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+make: *** [Src/subdir.mk:37: Src/timer3.o] Error 1
+make: *** [Src/subdir.mk:37: Src/ADC.o] Error 1
+../Src/main.c:2:10: fatal error: gpio.h: No such file or directory
+    2 | #include "gpio.h"
+      |          ^~~~~~~~
+compilation terminated.
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:42:58 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/ADC.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ADC.d" -MT"Src/ADC.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/ADC.o"
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/gpio.d" -MT"Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/gpio.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/timer3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timer3.d" -MT"Src/timer3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/timer3.o"
+../Src/DMA.c: In function 'DMA_Init':
+../Src/DMA.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->AHBENR |= RCC_AHBENR_DMA1EN; //clock DMA1
+      |     ^~~
+../Src/DMA.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/DMA.c:2:20: error: 'RCC_AHBENR_DMA1EN' undeclared (first use in this function)
+    2 |     RCC->AHBENR |= RCC_AHBENR_DMA1EN; //clock DMA1
+      |                    ^~~~~~~~~~~~~~~~~
+../Src/DMA.c:4:5: error: 'DMA1_Channel1' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |     ^~~~~~~~~~~~~
+../Src/DMA.c:4:28: error: 'uint32_t' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |                            ^~~~~~~~
+../Src/DMA.c:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; this is probably fixable by adding '#include <stdint.h>'
+  +++ |+#include <stdint.h>
+    1 | void DMA_Init(){
+../Src/DMA.c:4:39: error: 'ADC1' undeclared (first use in this function)
+    4 |     DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  //origem dos dados
+      |                                       ^~~~
+../Src/DMA.c:5:37: error: expected ';' before 'adc_buffer'
+    5 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+      |                                     ;
+../Src/DMA.c:8:27: error: 'DMA_CCR_EN' undeclared (first use in this function)
+    8 |     DMA1_Channel1->CCR |= DMA_CCR_EN;
+      |                           ^~~~~~~~~~
+../Src/timer3.c: In function 'TIM3_PWM_Init':
+../Src/timer3.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+      |     ^~~
+../Src/timer3.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/timer3.c:2:21: error: 'RCC_APB1ENR_TIM3EN' undeclared (first use in this function)
+    2 |     RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+      |                     ^~~~~~~~~~~~~~~~~~
+../Src/timer3.c:3:5: error: 'TIM3' undeclared (first use in this function)
+    3 |     TIM3->ARR = 4095;
+      |     ^~~~
+../Src/timer3.c:6:20: error: 'TIM_CCMR1_OC1PE' undeclared (first use in this function)
+    6 |     TIM3->CCMR1 |= TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+      |                    ^~~~~~~~~~~~~~~
+../Src/timer3.c:6:38: error: 'TIM_CCMR1_OC2PE' undeclared (first use in this function)
+    6 |     TIM3->CCMR1 |= TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+      |                                      ^~~~~~~~~~~~~~~
+../Src/timer3.c:8:20: error: 'TIM_CCMR2_OC3PE' undeclared (first use in this function)
+    8 |     TIM3->CCMR2 |= TIM_CCMR2_OC3PE;
+      |                    ^~~~~~~~~~~~~~~
+../Src/timer3.c:10:19: error: 'TIM_CCER_CC1E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                   ^~~~~~~~~~~~~
+../Src/timer3.c:10:35: error: 'TIM_CCER_CC2E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                                   ^~~~~~~~~~~~~
+../Src/timer3.c:10:51: error: 'TIM_CCER_CC3E' undeclared (first use in this function)
+   10 |     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+      |                                                   ^~~~~~~~~~~~~
+../Src/timer3.c:12:18: error: 'TIM_CR1_CEN' undeclared (first use in this function)
+   12 |     TIM3->CR1 |= TIM_CR1_CEN;
+      |                  ^~~~~~~~~~~
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/ADC.c: In function 'ADC_Init':
+../Src/ADC.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+      |     ^~~
+../Src/ADC.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/ADC.c:2:21: error: 'RCC_APB2ENR_ADC1EN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+      |                     ^~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:37: Src/timer3.o] Error 1
+../Src/gpio.c: In function 'GPIO_Init':
+../Src/gpio.c:2:5: error: 'RCC' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |     ^~~
+../Src/gpio.c:2:5: note: each undeclared identifier is reported only once for each function it appears in
+../Src/gpio.c:2:21: error: 'RCC_APB2ENR_IOPAEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                     ^~~~~~~~~~~~~~~~~~
+../Src/gpio.c:2:42: error: 'RCC_APB2ENR_IOPBEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                                          ^~~~~~~~~~~~~~~~~~
+../Src/gpio.c:2:63: error: 'RCC_APB2ENR_AFIOEN' undeclared (first use in this function)
+    2 |     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+      |                                                               ^~~~~~~~~~~~~~~~~~
+../Src/gpio.c:4:5: error: 'GPIOA' undeclared (first use in this function)
+    4 |     GPIOA->CRL &= ~0xFFF;
+      |     ^~~~~
+../Src/gpio.c:11:5: error: 'GPIOB' undeclared (first use in this function)
+   11 |     GPIOB->CRL &= ~0xF;
+      |     ^~~~~
+../Src/ADC.c:4:5: error: 'ADC1' undeclared (first use in this function)
+    4 |     ADC1->SQR1 = (2 << 20);
+      |     ^~~~
+../Src/ADC.c:9:18: error: 'ADC_CR1_SCAN' undeclared (first use in this function)
+    9 |     ADC1->CR1 |= ADC_CR1_SCAN;
+      |                  ^~~~~~~~~~~~
+../Src/ADC.c:10:18: error: 'ADC_CR2_DMA' undeclared (first use in this function)
+   10 |     ADC1->CR2 |= ADC_CR2_DMA;
+      |                  ^~~~~~~~~~~
+../Src/ADC.c:11:18: error: 'ADC_CR2_ADON' undeclared (first use in this function)
+   11 |     ADC1->CR2 |= ADC_CR2_ADON;
+      |                  ^~~~~~~~~~~~
+make: *** [Src/subdir.mk:37: Src/ADC.o] Error 1
+make: *** [Src/subdir.mk:37: Src/gpio.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:46:05 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/ADC.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ADC.d" -MT"Src/ADC.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/ADC.o"
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/gpio.d" -MT"Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/gpio.o"
+arm-none-eabi-gcc "../Src/timer3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timer3.d" -MT"Src/timer3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/timer3.o"
+../Src/DMA.c: In function 'DMA_Init':
+../Src/DMA.c:6:37: error: 'adc_buffer' undeclared (first use in this function)
+    6 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+../Src/DMA.c:6:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:46:36 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+../Src/DMA.c: In function 'DMA_Init':
+../Src/DMA.c:6:37: error: 'adc_buffer' undeclared (first use in this function)
+    6 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+../Src/DMA.c:6:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:47:40 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:9:12: warning: 'adc_buffer' initialized and declared 'extern'
+    9 | extern int adc_buffer[3] = {0, 0, 0}; //RGB
+      |            ^~~~~~~~~~
+../Src/DMA.c: In function 'DMA_Init':
+../Src/DMA.c:6:37: error: 'adc_buffer' undeclared (first use in this function)
+    6 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+../Src/DMA.c:6:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:47:54 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:9:17: warning: 'adc_buffer' initialized and declared 'extern'
+    9 | extern uint16_t adc_buffer[3] = {0, 0, 0}; //RGB
+      |                 ^~~~~~~~~~
+../Src/DMA.c: In function 'DMA_Init':
+../Src/DMA.c:6:37: error: 'adc_buffer' undeclared (first use in this function)
+    6 |     DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  //destino
+      |                                     ^~~~~~~~~~
+../Src/DMA.c:6:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/DMA.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:49:26 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1060	      0	   1576	   2636	    a4c	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
+ 
+16:51:38 **** Incremental Build of configuration Debug for project Pratica06-AD ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA.d" -MT"Src/DMA.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include" -I/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Include -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Pratica06-AD.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica06-AD/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica06-AD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pratica06-AD.elf
+ 
+arm-none-eabi-size  Pratica06-AD.elf 
+arm-none-eabi-objdump -h -S Pratica06-AD.elf  > "Pratica06-AD.list"
+   text	   data	    bss	    dec	    hex	filename
+   1068	      0	   1576	   2644	    a54	Pratica06-AD.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pratica06-AD.list
  

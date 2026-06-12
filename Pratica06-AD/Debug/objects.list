@@ -1,4 +1,8 @@
+"./Src/ADC.o"
+"./Src/DMA.o"
+"./Src/gpio.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
+"./Src/timer3.o"
 "./Startup/startup_stm32f103c8tx.o"

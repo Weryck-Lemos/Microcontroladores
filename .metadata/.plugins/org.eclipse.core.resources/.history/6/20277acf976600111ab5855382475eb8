@@ -1,0 +1,28 @@
+#include "stm32f1xx.h"
+#include "gpio.h"
+#include "ADC.h"
+#include "DMA.h"
+#include "timer3.h"
+//entrada  A0, A1, A2
+//saida A6, A7, B0
+
+extern uint16_t adc_buffer[3] = {0, 0, 0}; //RGB
+
+
+int main(void) {
+    GPIO_Init();
+    DMA_Init();
+    ADC_Init();
+    TIM3_PWM_Init();
+
+
+    ADC1->CR2 |= ADC_CR2_ADON; //ADC ligado
+    ADC1->CR2 |= ADC_CR2_CONT; // conversao continua
+    ADC1->CR2 |= ADC_CR2_SWSTART;  //primeira conversao
+
+    while(1) {
+        TIM3->CCR1 = adc_buffer[0];
+        TIM3->CCR2 = adc_buffer[1];
+        TIM3->CCR3 = adc_buffer[2];
+    }
+}

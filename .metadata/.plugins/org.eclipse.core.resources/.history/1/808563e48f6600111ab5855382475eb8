@@ -1,0 +1,92 @@
+#include "stm32f1xx.h"
+
+// entradas: A0, A1, A2
+// saídas:   A6, A7, B0
+
+// AJUSTE 1: 'volatile' adicionado para impedir que o compilador ignore as mudanças do DMA
+volatile uint16_t adc_buffer[3] = {0, 0, 0}; // [0]=R (PA0), [1]=G (PA1), [2]=B (PA2)
+
+void GPIO_Init(void) {
+    // Liga o clock dos Portais A, B e do mapa de funções alternativas (AFIO)
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+
+    // Configura PA0, PA1 e PA2 como Entrada Analógica (Modo 00, Config 00 -> 0x0)
+    GPIOA->CRL &= ~0x00000FFF;
+
+    // Configura PA6 e PA7 como Saída de Função Alternativa Push-Pull (PWM do TIM3)
+    GPIOA->CRL &= ~0xFF000000;
+    GPIOA->CRL |=  0xBB000000;
+
+    // Configura PB0 como Saída de Função Alternativa Push-Pull (PWM do TIM3)
+    GPIOB->CRL &= ~0x0000000F;
+    GPIOB->CRL |=  0x0000000B;
+}
+
+void DMA_Init(void) {
+    RCC->AHBENR |= RCC_AHBENR_DMA1EN; // Liga o clock do DMA1
+
+    DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);  // Origem: Registrador de dados do ADC
+    DMA1_Channel1->CMAR = (uint32_t)adc_buffer;  // Destino: Nosso vetor na RAM
+    DMA1_Channel1->CNDTR = 3;                     // Quantidade de canais a transferir
+
+    // Configurações do canal:
+    // MSIZE = 16-bit (1<<10) | PSIZE = 16-bit (1<<8) | MINC = Auto-incremento de memória (1<<7) | CIRC = Modo Circular (1<<5)
+    DMA1_Channel1->CCR = (1 << 10) | (1 << 8) | (1 << 7) | (1 << 5);
+
+    DMA1_Channel1->CCR |= DMA_CCR_EN; // Ativa o canal 1 do DMA
+}
+
+void ADC_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN; // Liga o clock do ADC1
+
+    ADC1->SQR1 = (2 << 20); // Define o tamanho da sequência: 2 + 1 = 3 conversões
+    ADC1->SQR3 = (0 << 0) | (1 << 5) | (2 << 10); // Sequência: 1º=Ch0(PA0), 2º=Ch1(PA1), 3º=Ch2(PA2)
+
+    ADC1->CR2 |= (7UL << 17); // Configura o Trigger para via Software (EXTSEL = 111)
+
+    ADC1->CR1 |= ADC_CR1_SCAN; // Ativa o Modo Scan (varre múltiplos canais em sequência)
+    ADC1->CR2 |= ADC_CR2_DMA;  // Autoriza o ADC a enviar requisições ao DMA
+    ADC1->CR2 |= ADC_CR2_ADON; // Acorda o ADC do modo Power-down
+
+    // Pequeno atraso para estabilização interna do hardware analógico
+    for(volatile int i = 0; i < 2000; i++);
+
+    // AJUSTE 2: Executa a calibração automática do ADC (Garante precisão máxima)
+    ADC1->CR2 |= ADC_CR2_CAL;
+    while(ADC1->CR2 & ADC_CR2_CAL); // Aguarda a calibração terminar
+}
+
+void TIM3_PWM_Init(void) {
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN; // Liga o clock do Timer 3
+
+    TIM3->ARR = 4095; // Frequência do PWM casa com a resolução de 12 bits do ADC
+    TIM3->PSC = 0;
+
+    // Configura os Canais 1, 2 e 3 em Modo PWM 1 (6 << bit_modo) com Preload ativo
+    TIM3->CCMR1 |= (6 << 4) | (6 << 12) | TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+    TIM3->CCMR2 |= (6 << 4) | TIM_CCMR2_OC3PE;
+
+    // Habilita a saída física dos 3 canais nos pinos
+    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+
+    TIM3->CR1 |= TIM_CR1_CEN; // Liga o Timer 3
+}
+
+int main(void) {
+    GPIO_Init();
+    DMA_Init();
+    ADC_Init();
+    TIM3_PWM_Init();
+
+    // Configurações finais de disparo do ADC
+    ADC1->CR2 |= ADC_CR2_CONT;     // Ativa o Modo Contínuo (termina a varredura e recomeça sozinho)
+    ADC1->CR2 |= ADC_CR2_SWSTART;  // Dá a partida inicial na primeira conversão
+
+    while(1) {
+        // A CPU executa este laço na velocidade máxima apenas copiando os dados da RAM.
+        // O DMA atualiza o 'adc_buffer' em background de forma totalmente invisível.
+        TIM3->CCR1 = adc_buffer[0]; // Atualiza o canal Vermelho (PA6)
+        TIM3->CCR2 = adc_buffer[1]; // Atualiza o canal Verde (PA7)
+        TIM3->CCR3 = adc_buffer[2]; // Atualiza o canal Azul (PB0)
+    }
+}

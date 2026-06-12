@@ -1,0 +1,14 @@
+#include "stm32f1xx.h"
+void GPIO_Init(){
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+
+    GPIOA->CRL &= ~0xFFF;
+
+    //A6 e PA7
+    GPIOA->CRL &= ~0xFF000000;
+    GPIOA->CRL |=  0xBB000000;
+
+    //PB0
+    GPIOB->CRL &= ~0xF;
+    GPIOB->CRL |=  0xB;
+}

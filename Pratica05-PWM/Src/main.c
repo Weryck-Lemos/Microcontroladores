@@ -3,7 +3,7 @@
 volatile uint16_t intensidade = 0;
 volatile uint8_t subir = 1;
 volatile uint8_t i = 0;
-const int cores[7] = {1,2, 4, 3, 6, 5, 7};
+const int cores[7] = {1, 2, 4, 3, 6, 5, 7};
 
 void TIM2_IRQHandler() {
     if (TIM2->SR & TIM_SR_UIF) {

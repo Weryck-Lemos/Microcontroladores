@@ -1,0 +1,93 @@
+#include "stm32f1xx.h"
+
+volatile uint16_t adc_buffer[3] = {0, 0, 0};
+
+void GPIO_Init(void)
+{
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+
+    GPIOA->CRL &= ~0x00000FFF;
+
+    GPIOA->CRL &= ~0xFF000000;
+    GPIOA->CRL |=  0xBB000000;
+
+    GPIOB->CRL &= ~0x0000000F;
+    GPIOB->CRL |=  0x0000000B;
+
+    GPIOB->CRH &= ~0x0000000F;
+    GPIOB->CRH |=  0x00000002;
+}
+
+void DMA1_Init(void)
+{
+    RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+
+    DMA1_Channel1->CPAR = (uint32_t)&(ADC1->DR);
+    DMA1_Channel1->CMAR = (uint32_t)adc_buffer;
+    DMA1_Channel1->CNDTR = 3;
+
+    DMA1_Channel1->CCR = DMA_CCR_MSIZE_0 | DMA_CCR_PSIZE_0 | DMA_CCR_MINC | DMA_CCR_CIRC;
+
+    DMA1_Channel1->CCR |= DMA_CCR_EN;
+}
+
+void ADC1_Init(void)
+{
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+
+    ADC1->SQR1 = (2UL << ADC_SQR1_L_Pos);
+
+    ADC1->SQR3 = (0UL << ADC_SQR3_SQ1_Pos) | (1UL << ADC_SQR3_SQ2_Pos) | (2UL << ADC_SQR3_SQ3_Pos);
+
+    ADC1->SMPR2 = (7UL << ADC_SMPR2_SMP0_Pos) | (7UL << ADC_SMPR2_SMP1_Pos) | (7UL << ADC_SMPR2_SMP2_Pos);
+
+    ADC1->CR2 |= (7UL << ADC_CR2_EXTSEL_Pos); // <--- GATILHO POR SOFTWARE CONFIGURADO
+
+    ADC1->CR1 |= ADC_CR1_SCAN;
+    ADC1->CR2 |= ADC_CR2_DMA | ADC_CR2_CONT;
+
+    ADC1->CR2 |= ADC_CR2_ADON;
+
+    for(volatile uint32_t i = 0; i < 1000; i++);
+
+    ADC1->CR2 |= ADC_CR2_SWSTART;
+}
+
+void TIM3_PWM_Init(void)
+{
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+
+    TIM3->ARR = 4095;
+    TIM3->PSC = 0;
+
+    TIM3->CCMR1 |= (6 << 4) | (6 << 12) | TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+    TIM3->CCMR2 |= (6 << 4) | TIM_CCMR2_OC3PE;
+
+    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+
+    TIM3->EGR |= TIM_EGR_UG;
+    TIM3->CR1 |= TIM_CR1_CEN;
+}
+
+int main(void)
+{
+    GPIO_Init();
+    DMA1_Init();
+    ADC1_Init();
+    TIM3_PWM_Init();
+
+//MAIN APPLICATION*************************************************************
+
+    for(;;)
+    {
+        TIM3->CCR1 = adc_buffer[0];
+        TIM3->CCR2 = adc_buffer[1];
+        TIM3->CCR3 = adc_buffer[2];
+
+        for (volatile uint32_t i = 0; i < 100000; i++);
+        GPIOB->ODR |= (1 << 8);
+
+        for (volatile uint32_t i = 0; i < 100000; i++);
+        GPIOB->ODR &= ~(1 << 8);
+    }
+}

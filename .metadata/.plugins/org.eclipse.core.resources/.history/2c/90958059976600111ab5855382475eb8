@@ -1,0 +1,12 @@
+void ADC_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+
+    ADC1->SQR1 = (2 << 20);
+    ADC1->SQR3 = (0 << 0) | (1 << 5) | (2 << 10);
+
+    ADC1->CR2 |= (7UL << 17);
+
+    ADC1->CR1 |= ADC_CR1_SCAN;
+    ADC1->CR2 |= ADC_CR2_DMA;
+    ADC1->CR2 |= ADC_CR2_ADON;
+}

@@ -1,12 +1,14 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:New_configuration,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica03-Systick Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica04-Timer,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica06-AD Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica05-PWM Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica07-USART Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica01 -GPIO Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica02 - Interrupcao Debug,org.eclipse.launchbar.core.descriptorType.default\:New_configuration,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica04-Timer,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica05-PWM Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica03-Systick Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica07-USART Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica06-AD Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica01\ -GPIO\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica01\ -GPIO\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica03\ -\ SysTick\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica03-Systick\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica03-Systick\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pratica06-AD\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:test/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:test/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:New_configuration/activeLaunchMode=run

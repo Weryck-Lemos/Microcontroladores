@@ -1,0 +1,98 @@
+#include "stm32f1xx.h"
+
+// Buffer global marcado como volatile para que o while(1) veja as mudanças da IRQ
+volatile uint16_t adc_buffer[3] = {0, 0, 0};
+volatile uint8_t canal_atual = 0;
+
+void GPIO_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+
+    // Configura PA0, PA1 e PA2 como entrada analógica (Bits em 0000)
+    GPIOA->CRL &= ~0x00000FFF;
+
+    // Configura PA6 e PA7 como saídas de Função Alternativa (PWM do TIM3)
+    GPIOA->CRL &= ~0xFF000000;
+    GPIOA->CRL |=  0xBB000000;
+
+    // Configura PB0 como saída de Função Alternativa (PWM do TIM3)
+    GPIOB->CRL &= ~0x0000000F;
+    GPIOB->CRL |=  0x0000000B;
+}
+
+void TIM3_PWM_Init(void) {
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+    TIM3->ARR = 4095;
+    TIM3->PSC = 0;
+
+    TIM3->CCMR1 |= (6 << 4) | (6 << 12) | TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+    TIM3->CCMR2 |= (6 << 4) | TIM_CCMR2_OC3PE;
+
+    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+    TIM3->CR1 |= TIM_CR1_CEN;
+}
+
+void ADC1_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+
+    // 1. Configura o gatilho (Trigger) para via Software (EXTSEL = 111)
+    ADC1->CR2 |= (7UL << 17);
+
+    // 2. Habilita a Interrupção de Fim de Conversão (EOCIE)
+    ADC1->CR1 |= ADC_CR1_EOCIE;
+    NVIC_EnableIRQ(ADC1_2_IRQn);
+
+    // 3. Define que faremos apenas 1 conversão por vez (SQR1_L = 0) e começa no PA0
+    ADC1->SQR1 = 0;
+    ADC1->SQR3 = 0;
+
+    // 4. Liga o periférico (Primeiro ADON tira o ADC do modo Power-Down)
+    ADC1->CR2 |= ADC_CR2_ADON;
+    for(volatile int i = 0; i < 2000; i++); // Atraso necessário de estabilização
+
+    // 5. Calibração Automática (Essencial para garantir que o ADC acorde de verdade)
+    ADC1->CR2 |= ADC_CR2_CAL;
+    while(ADC1->CR2 & ADC_CR2_CAL);
+}
+
+// Interrupção do ADC: Executada de forma limpa a cada fim de leitura
+void ADC1_2_IRQHandler(void) {
+    if (ADC1->SR & ADC_SR_EOC) {
+        uint16_t valor = ADC1->DR; // Ler o DR limpa a flag EOC automaticamente no hardware
+
+        // Salva o valor lido e já chaveia o registrador SQR3 para o próximo pino
+        if (canal_atual == 0) {
+            adc_buffer[0] = valor; // Salva Vermelho (PA0)
+            ADC1->SQR3 = 1;        // Prepara hardware para ler PA1
+            canal_atual = 1;
+        }
+        else if (canal_atual == 1) {
+            adc_buffer[1] = valor; // Salva Verde (PA1)
+            ADC1->SQR3 = 2;        // Prepara hardware para ler PA2
+            canal_atual = 2;
+        }
+        else {
+            adc_buffer[2] = valor; // Salva Azul (PA2)
+            ADC1->SQR3 = 0;        // Prepara hardware para voltar ao PA0
+            canal_atual = 0;
+        }
+
+        // Como o modo contínuo está DESLIGADO, damos o start manual para a próxima porta
+        ADC1->CR2 |= ADC_CR2_SWSTART;
+    }
+}
+
+int main(void) {
+    GPIO_Init();
+    TIM3_PWM_Init();
+    ADC1_Init();
+
+    // Dispara a primeiríssima conversão. A partir daqui, a própria interrupção se realimenta
+    ADC1->CR2 |= ADC_CR2_SWSTART;
+
+    while(1) {
+        // O while(1) fica completamente livre de delay ou travas, apenas atualiza o PWM
+        TIM3->CCR1 = adc_buffer[0];
+        TIM3->CCR2 = adc_buffer[1];
+        TIM3->CCR3 = adc_buffer[2];
+    }
+}

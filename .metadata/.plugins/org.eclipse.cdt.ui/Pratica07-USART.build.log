@@ -1,4 +1,4 @@
-20:38:35 **** Incremental Build of configuration Debug for project Pratica07-USART ****
+15:43:01 **** Incremental Build of configuration Debug for project Pratica07-USART ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DSTM32F103xB=STM32F103xB -c -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/F1_Header/Device/ST/STM32F1xx/Include" -I"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "Pratica07-USART.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/ubuntu/Documentos/Microcontroladores/Pratica07-USART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pratica07-USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: Pratica07-USART.elf
 arm-none-eabi-size  Pratica07-USART.elf 
 arm-none-eabi-objdump -h -S Pratica07-USART.elf  > "Pratica07-USART.list"
    text	   data	    bss	    dec	    hex	filename
-   2616	     84	   1900	   4600	   11f8	Pratica07-USART.elf
+    980	      0	   1568	   2548	    9f4	Pratica07-USART.elf
 Finished building: default.size.stdout
  
 Finished building: Pratica07-USART.list
  
 
-20:38:35 Build Finished. 0 errors, 0 warnings. (took 176ms)
+15:43:01 Build Finished. 0 errors, 0 warnings. (took 176ms)
 

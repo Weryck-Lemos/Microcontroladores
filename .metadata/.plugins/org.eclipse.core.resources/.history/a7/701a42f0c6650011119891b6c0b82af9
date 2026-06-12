@@ -1,0 +1,80 @@
+#include "stm32f1xx.h"
+
+// Variável para rastrear qual potenciômetro estamos lendo no momento
+volatile uint8_t canal_atual = 0;
+
+void GPIO_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+
+    GPIOA->CRL &= ~0x00000FFF; // PA0, PA1 e PA2 como entrada analógica
+
+    GPIOA->CRL &= ~0xFF000000;
+    GPIOA->CRL |=  0xBB000000; // PA6 e PA7 como PWM
+
+    GPIOB->CRL &= ~0x0000000F;
+    GPIOB->CRL |=  0x0000000B; // PB0 como PWM
+}
+
+void ADC1_Init(void) {
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+
+    ADC1->CR2 |= (7UL << 17);    // Gatilho via Software (EXTSEL)
+    ADC1->CR1 |= ADC_CR1_EOCIE;  // Habilita Interrupção de Fim de Conversão (O Segredo do Professor)
+
+    NVIC_EnableIRQ(ADC1_2_IRQn); // Ativa o vetor de interrupção do ADC
+
+    ADC1->SQR3 = 0;              // Configura para ler o primeiro canal (PA0)
+
+    ADC1->CR2 |= ADC_CR2_ADON;   // Liga o ADC
+    for(volatile int i = 0; i < 1000; i++); // Atraso térmico de estabilização
+
+    ADC1->CR2 |= ADC_CR2_SWSTART;// Dispara a primeiríssima leitura
+}
+
+void TIM3_PWM_Init(void) {
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+    TIM3->ARR = 4095;
+    TIM3->PSC = 0;
+    TIM3->CCMR1 |= (6 << 4) | (6 << 12) | TIM_CCMR1_OC1PE | TIM_CCMR1_OC2PE;
+    TIM3->CCMR2 |= (6 << 4) | TIM_CCMR2_OC3PE;
+    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E;
+    TIM3->CR1 |= TIM_CR1_CEN;
+}
+
+// O código "Bom" do professor: Tudo acontece em segundo plano na Interrupção
+void ADC1_2_IRQHandler(void) {
+    if (ADC1->SR & ADC_SR_EOC) {
+        uint16_t valor = ADC1->DR; // Ler o DR automaticamente zera a flag EOC
+
+        // Distribui o valor para o PWM correto e prepara o ADC para o próximo pino
+        if (canal_atual == 0) {
+            TIM3->CCR1 = valor;    // Atualiza Vermelho
+            canal_atual = 1;       // Próximo passo
+            ADC1->SQR3 = 1;        // Muda o hardware para ler o PA1 na próxima
+        }
+        else if (canal_atual == 1) {
+            TIM3->CCR2 = valor;    // Atualiza Verde
+            canal_atual = 2;       // Próximo passo
+            ADC1->SQR3 = 2;        // Muda o hardware para ler o PA2 na próxima
+        }
+        else {
+            TIM3->CCR3 = valor;    // Atualiza Azul
+            canal_atual = 0;       // Reinicia o ciclo
+            ADC1->SQR3 = 0;        // Volta o hardware para o PA0
+        }
+
+        // Dá o gatilho para o ADC ler a nova porta que acabamos de configurar
+        ADC1->CR2 |= ADC_CR2_SWSTART;
+    }
+}
+
+int main(void) {
+    GPIO_Init();
+    TIM3_PWM_Init();
+    ADC1_Init();
+
+    while(1) {
+        // A CPU está 100% livre.
+        // O ADC e o Timer ficam trocando passes na função ADC1_2_IRQHandler sozinhos.
+    }
+}
